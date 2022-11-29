@@ -1,0 +1,1 @@
+1 */4  * * * root /usr/bin/kcarectl -q --auto-update

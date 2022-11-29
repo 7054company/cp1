@@ -1,0 +1,1 @@
+6 5 * * * root /usr/local/cpanel/scripts/gather_update_log_stats --logfile /var/cpanel/updatelogs/last --upload > /dev/null 2>&1

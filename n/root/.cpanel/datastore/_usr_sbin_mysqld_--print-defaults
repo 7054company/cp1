@@ -1,0 +1,2 @@
+/usr/sbin/mysqld would have been started with the following arguments:
+--performance-schema=0 --datadir=/var/lib/mysql --socket=/var/lib/mysql/mysql.sock --symbolic-links=0 --log-error=/var/log/mysqld.log --pid-file=/var/run/mysqld/mysqld.pid --innodb_buffer_pool_size=54525952 --max_allowed_packet=268435456 --open_files_limit=40000 --innodb_file_per_table=1 

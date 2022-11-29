@@ -1,0 +1,17 @@
+WELCOME TO JEEBANHOST.IN LICENSING SYSTEM
+
+======================================
+| Licsys Version:	1.0.38
+| Licsys Channel:	Stable
+| Licsys Release:	15th-May-2022
+| License Status:	ACTIVE
+| License Expire:	Nov 27th 2022
+| Server IP:		43.205.70.36
+======================================
+
+Checking cPanel Status....
+cPanel is active and running...
+
+======================================
+support@jeebanhost.in
+JEEBANHOST.IN - 1998

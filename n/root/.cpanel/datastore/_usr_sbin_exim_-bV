@@ -1,0 +1,13 @@
+Exim version 4.95 #2 built 22-Nov-2021 18:04:21
+Copyright (c) University of Cambridge, 1995 - 2018
+(c) The Exim Maintainers and contributors in ACKNOWLEDGMENTS file, 2007 - 2020
+Berkeley DB: Berkeley DB 5.3.21: (May 11, 2012)
+Support for: crypteq iconv() IPv6 PAM Perl OpenSSL TLS_resume Content_Scanning DANE DKIM DNSSEC Event I18N OCSP PIPE_CONNECT PRDR Experimental_Queue_Ramp SPF Experimental_SRS
+Lookups (built-in): lsearch wildlsearch nwildlsearch iplsearch cdb dbm dbmjz dbmnz dnsdb dsearch passwd sqlite
+Authenticators: cram_md5 dovecot plaintext spa
+Routers: accept dnslookup ipliteral manualroute queryprogram redirect
+Transports: appendfile/maildir autoreply lmtp pipe smtp
+Malware: f-protd f-prot6d drweb fsecure sophie clamd avast sock cmdline
+Configure owner: 0:0
+Size of off_t: 8
+Configuration file is /etc/exim.conf

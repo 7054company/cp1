@@ -1,0 +1,8 @@
+# This cronjob is responsible for receiving the updates of WordPress Toolkit.
+# It works as following logic:
+# - WPT CLI is called to receive the available update version;
+# - If update is found, then the URLs to the host with repositories are updated and cache is cleared for WPT repos;
+# - If WPT CLI is failed (e.g. unable to communicate with update service or WPT is completely broken), then
+# the cronjob executes wp-toolkit-installer script to set the default URLs to host with repositories;
+# - Finally the yum update is called to install latest available version.
+0 1 * * * root sleep $((1 + RANDOM \% 5))h $((1 + RANDOM \% 60))m; /usr/local/bin/wp-toolkit update-configuration > /dev/null 2> /dev/null || /usr/local/cpanel/3rdparty/wp-toolkit/bin/wp-toolkit-installer.sh --generate-configs > /dev/null 2> /dev/null; /usr/bin/yum -y update wp-toolkit-cpanel > /dev/null 2> /dev/null

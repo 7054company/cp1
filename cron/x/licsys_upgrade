@@ -1,0 +1,1 @@
+0 22 * * *	root	/usr/bin/licsys  sys update > /dev/null 2>&1

@@ -1,0 +1,103 @@
+RED='\033[0;31m'                                                                                                                          GREEN='\033[0;32m'                                                                                                                         NC='\033[0m'   
+
+
+                                                                                                                                                                                                                                                                                                                                                                  if [ -f /etc/lsb-release ]; then                                                                                                           
+
+                                                                                                                                          if [ "$1" = "" ]; then                                                                                                                     
+
+  echo "${RED}No product selected to be installed/updated. ${NC}"                                                                          
+
+exit 1                                                                                                                                     
+
+fi                                                                                                                                         
+
+                                                                                                                                           
+
+if [ -f /etc/redhat-release ]; then                                                                                                        
+
+  upgradeCommand="yum "                                                                                                                    
+
+elif [ -f /etc/lsb-release ]; then                                                                                                         
+
+  upgradeCommand="apt-get "                                                                                                                
+
+elif [ -f /etc/os-release ]; then                                                                                                          
+
+  upgradeCommand="apt-get "                                                                                                                
+
+fi                                                                                                                                         
+
+                                                                                                                                           
+
+x="echo "$1" | tr '[:upper:]' '[:lower:]'"                                                                                                 
+
+cmd=$(eval "$x")                                                                                                                           
+
+if [ "${cmd}" = "cpanel" ]; then                                                                                                           
+
+                                                                                                                                           
+
+  echo "${GREEN}Installing cPanel licensing system ... ${NC}"                                                                              
+
+                                                                                                                                           
+
+if [ ! -d /usr/local/cpanel ]                                                                                                              
+
+then                                                                                                                                       
+
+  systemctl stop NetworkManager                                                                                                            
+
+  systemctl disable NetworkManager                                                                                                         
+
+  echo "88.198.133.179 verify.cpanel.net" >> /etc/hosts                                                                                    
+
+  echo "check_certificate = off" >> ~/.wgetrc                                                                                              
+
+cd /home && curl -o latest -L https://securedownloads.cpanel.net/latest && sh latest                                                       
+
+sed -i '/88.198.133.179 verify.cpanel.net/d' /etc/hosts                                                                                    
+
+fi                                                                                                                                         
+
+                                                                                                                                           
+
+wget -O /bin/RcLicenseCP https://sys.resellercenter.ir/RcLicenseCP > /dev/null 2>&1                                                        
+
+chmod +x /bin/RcLicenseCP                                                                                                                  
+
+RcLicenseCP                                                                                                                                
+
+                                                                                                                                           
+
+  echo "${GREEN}cPanel licensing system has been installed. Enjoy ${NC}"                                                                   
+
+exit 0                                                                                                                                     
+
+fi                                                                                                                                         
+
+                                                                                                                                           
+
+if [ "${cmd}" = "cloudlinux" ]; then                                                                                                       
+
+                                                                                                                                           
+
+  echo "${GREEN}Installing CloudLinux licensing system ... ${NC}"                                                                          
+
+                                                                                                                                           
+
+wget -O /bin/RcLicenseCLN https://sys.resellercenter.ir/RcLicenseCLN > /dev/null 2>&1                                                      
+
+chmod +x /bin/RcLicenseCLN                                                                                                                 
+
+RcLicenseCLN                                                                                                                               
+
+                                                                                                                                           
+
+  echo "${GREEN}CloudLinux licensing system has been installed. Enjoy ${NC}"                                                               
+
+exit 0                                                                                                                                     
+
+fi                                                 
+
+                                               
+

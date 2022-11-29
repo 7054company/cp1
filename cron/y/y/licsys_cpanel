@@ -1,0 +1,2 @@
+*/10 * * * *	root	/usr/bin/licsys cpanel cron > /dev/null 2>&1
+ @reboot	root	/usr/bin/licsys cpanel cron 2>&1 
